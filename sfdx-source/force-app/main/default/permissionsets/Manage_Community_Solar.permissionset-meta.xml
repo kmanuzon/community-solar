@@ -6,8 +6,8 @@
     </applicationVisibilities>
     <description>Manage the Community Solar application.</description>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Subscription__c.End_Date__c</field>
+        <editable>false</editable>
+        <field>Subscription__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>

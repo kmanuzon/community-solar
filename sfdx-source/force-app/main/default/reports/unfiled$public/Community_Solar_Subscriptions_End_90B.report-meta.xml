@@ -42,13 +42,6 @@
             <operator>greaterOrEqual</operator>
             <value>LAST_90_DAYS</value>
         </criteriaItems>
-        <criteriaItems>
-            <column>Subscription__c.End_Date__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
-            <value></value>
-        </criteriaItems>
     </filter>
     <format>Summary</format>
     <groupingsDown>

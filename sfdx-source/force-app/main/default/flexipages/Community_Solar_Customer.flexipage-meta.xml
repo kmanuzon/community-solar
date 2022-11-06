@@ -227,7 +227,7 @@
                     <name>adminFilters</name>
                     <valueList>
                         <valueListItems>
-                            <value>Status__c|EQUALS|[&quot;Active&quot;]</value>
+                            <value>Status__c|EQUALS|Active</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
@@ -298,7 +298,7 @@
                     <name>adminFilters</name>
                     <valueList>
                         <valueListItems>
-                            <value>Status__c|EQUALS|[&quot;Inactive&quot;]</value>
+                            <value>Status__c|EQUALS|Inactive</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
