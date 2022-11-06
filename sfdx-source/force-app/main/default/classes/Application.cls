@@ -16,7 +16,11 @@ public class Application
         );
 
     public static final fflib_Application.ServiceFactory Service =
-        new fflib_Application.ServiceFactory(new Map<Type, Type> {});
+        new fflib_Application.ServiceFactory(
+            new Map<Type, Type>
+            {
+            }
+        );
 
     public static final fflib_Application.SelectorFactory Selector =
         new fflib_Application.SelectorFactory(
@@ -29,6 +33,9 @@ public class Application
     public static final fflib_Application.DomainFactory Domain =
         new fflib_Application.DomainFactory(
             Application.Selector,
-            new Map<SObjectType, Type> {}
+            new Map<SObjectType, Type>
+            {
+                Schema.Subscription__c.SObjectType => Subscriptions.Constructor.class
+            }
         );
 }

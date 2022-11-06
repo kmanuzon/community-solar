@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Community_Solar_Subscription_End_Date_Overlap</fullName>
+        <categories>Community Solar</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community Solar Subscription End Date Overlap</shortDescription>
+        <value>Customer has an existing subscription to Shared Solar System on this End Date.</value>
+    </labels>
+    <labels>
+        <fullName>Community_Solar_Subscription_Start_Date_Overlap</fullName>
+        <categories>Community Solar</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community Solar Subscription Start Date Overlap</shortDescription>
+        <value>Customer has an existing subscription to Shared Solar System on this Start Date.</value>
+    </labels>
+</CustomLabels>

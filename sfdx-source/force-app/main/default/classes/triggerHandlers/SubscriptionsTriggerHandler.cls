@@ -10,12 +10,12 @@ public inherited sharing class SubscriptionsTriggerHandler extends ApplicationSO
         super(records);
     }
 
-    public override void onBeforeInsert()
+    public override void onAfterInsert()
     {
-        validateEffectivityDates((List<Subscription__c>) getRecords());
+        validateEffectivityDates(getRecords());
     }
 
-    public override void onBeforeUpdate(Map<Id,SObject> existingRecords)
+    public override void onAfterUpdate(Map<Id, SObject> existingRecords)
     {
         onChangeEffectivityDates();
     }
@@ -28,7 +28,7 @@ public inherited sharing class SubscriptionsTriggerHandler extends ApplicationSO
             Schema.Subscription__c.End_Date__c
         };
 
-        List<Subscription__c> changedRecords = (List<Subscription__c>) getChangedRecords(fields);
+        List<Subscription__c> changedRecords = getChangedRecords(fields);
 
         if (!changedRecords.isEmpty())
         {
@@ -38,22 +38,50 @@ public inherited sharing class SubscriptionsTriggerHandler extends ApplicationSO
 
     private void validateEffectivityDates(List<Subscription__c> records)
     {
-        // query subscriptions based on customer and shared solar system
-        // store in domain
-        // loop through records in trigger
-        // select only customer
-        // select only shared solar system
-        // select new start date between existing start date and end date
+        List<Subscription__c> existingSubscriptions =
+            SubscriptionsSelector.newInstance().selectByCustomerAndSharedSolarSystem(records);
 
-        List<Subscription__c> otherSubscriptions =
-            SubscriptionsSelector.newInstance()
-                .selectByCustomerAndSharedSolarSystem(records);
+        ISubscriptions existingSubscriptionsDomain = Subscriptions.newInstance(existingSubscriptions);
 
         for (Subscription__c record : records)
         {
-            String errorMessage = 'Customer has an existing subscription to Shared Solar System on this date.';
-            String errorMessage2 = error(errorMessage, record, Schema.Subscription__c.Start_Date__c);
-            record.Start_Date__c.addError(errorMessage2);
+            // count existing records that overlap with start date
+            Integer startDateOverlapCount =
+                existingSubscriptionsDomain
+                    .selectByIdNotInValue(record.Id)
+                    .selectByCustomer(record.Customer__c)
+                    .selectBySharedSolarSystem(record.Shared_Solar_System__c)
+                    .selectByStartDateLessThanOrEqualToValue(record.Start_Date__c)
+                    .selectByEndDateGreaterThanOrEqualToValue(record.Start_Date__c)
+                    .getRecords()
+                    .size();
+
+            if (startDateOverlapCount > 0)
+            {
+                Schema.SObjectField startDateField = Schema.Subscription__c.Start_Date__c;
+                String startDateOverlapError = System.Label.Community_Solar_Subscription_Start_Date_Overlap;
+
+                record.addError(startDateField, error(startDateOverlapError, record, startDateField));
+            }
+
+            // count existing records that overlap with end date
+            Integer endDateOverlapCount =
+                existingSubscriptionsDomain
+                    .selectByIdNotInValue(record.Id)
+                    .selectByCustomer(record.Customer__c)
+                    .selectBySharedSolarSystem(record.Shared_Solar_System__c)
+                    .selectByStartDateLessThanOrEqualToValue(record.End_Date__c)
+                    .selectByEndDateGreaterThanOrEqualToValue(record.End_Date__c)
+                    .getRecords()
+                    .size();
+
+            if (endDateOverlapCount > 0)
+            {
+                Schema.SObjectField endDateField = Schema.Subscription__c.End_Date__c;
+                String endDateOverlapError = System.Label.Community_Solar_Subscription_End_Date_Overlap;
+
+                record.addError(endDateField, error(endDateOverlapError, record, endDateField));
+            }
         }
     }
 
