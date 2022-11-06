@@ -12,4 +12,5 @@ package.xml
 **/__tests__/**
 
 # Ignore these files
+**/appMenus/AppSwitcher.appMenu-meta.xml
 **/profiles/Admin.profile-meta.xml

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Administrator for Community Solar application.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Community Solar Administrator</label>
+    <permissionSets>Manage_Community_Solar</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
