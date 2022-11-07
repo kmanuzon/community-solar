@@ -5,200 +5,200 @@
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef1"
             },
+            "Customer__c": "@AccountRef18",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-11-01",
-            "Status__c": "Active",
-            "Name": "SUB-0001"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-01"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef2"
             },
+            "Customer__c": "@AccountRef8",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-11-01",
-            "Status__c": "Active",
-            "Name": "SUB-0002"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-01"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef3"
             },
+            "Customer__c": "@AccountRef2",
             "End_Date__c": "2022-10-31",
-            "Start_Date__c": "2022-10-01",
-            "Status__c": "Inactive",
-            "Name": "SUB-0003"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-10-01"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef4"
             },
+            "Customer__c": "@AccountRef2",
             "End_Date__c": "2022-11-05",
-            "Start_Date__c": "2022-11-01",
-            "Status__c": "Inactive",
-            "Name": "SUB-0004"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-01"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef5"
             },
+            "Customer__c": "@AccountRef6",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-11-06",
-            "Status__c": "Active",
-            "Name": "SUB-0005"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-06"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef6"
             },
+            "Customer__c": "@AccountRef7",
             "End_Date__c": "2022-12-10",
-            "Start_Date__c": "2022-11-06",
-            "Status__c": "Active",
-            "Name": "SUB-0006"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-06"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef7"
             },
+            "Customer__c": "@AccountRef1",
             "End_Date__c": "2022-10-15",
-            "Start_Date__c": "2022-10-01",
-            "Status__c": "Inactive",
-            "Name": "SUB-0007"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef1",
+            "Start_Date__c": "2022-10-01"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef8"
             },
+            "Customer__c": "@AccountRef17",
             "End_Date__c": "2022-10-15",
-            "Start_Date__c": "2022-10-05",
-            "Status__c": "Inactive",
-            "Name": "SUB-0008"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef1",
+            "Start_Date__c": "2022-10-05"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef9"
             },
+            "Customer__c": "@AccountRef11",
             "End_Date__c": "2022-10-31",
-            "Start_Date__c": "2022-10-01",
-            "Status__c": "Inactive",
-            "Name": "SUB-0009"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef2",
+            "Start_Date__c": "2022-10-01"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef10"
             },
+            "Customer__c": "@AccountRef12",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-10-01",
-            "Status__c": "Active",
-            "Name": "SUB-0010"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef2",
+            "Start_Date__c": "2022-10-01"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef11"
             },
+            "Customer__c": "@AccountRef4",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-10-10",
-            "Status__c": "Active",
-            "Name": "SUB-0011"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef2",
+            "Start_Date__c": "2022-10-10"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef12"
             },
+            "Customer__c": "@AccountRef10",
             "End_Date__c": "2022-12-31",
-            "Start_Date__c": "2022-10-20",
-            "Status__c": "Active",
-            "Name": "SUB-0012"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef2",
+            "Start_Date__c": "2022-10-20"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef13"
             },
+            "Customer__c": "@AccountRef15",
             "End_Date__c": "2022-11-20",
-            "Start_Date__c": "2022-11-06",
-            "Status__c": "Active",
-            "Name": "SUB-0013"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-06"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef14"
             },
+            "Customer__c": "@AccountRef3",
             "End_Date__c": "2022-11-20",
-            "Start_Date__c": "2022-11-07",
-            "Status__c": "Inactive",
-            "Name": "SUB-0014"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-07"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef15"
             },
+            "Customer__c": "@AccountRef16",
             "End_Date__c": "2022-11-21",
-            "Start_Date__c": "2022-11-07",
-            "Status__c": "Inactive",
-            "Name": "SUB-0015"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-07"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef16"
             },
+            "Customer__c": "@AccountRef13",
             "End_Date__c": "2022-11-21",
-            "Start_Date__c": "2022-11-07",
-            "Status__c": "Inactive",
-            "Name": "SUB-0016"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-07"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef17"
             },
+            "Customer__c": "@AccountRef2",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-11-07",
-            "Status__c": "Inactive",
-            "Name": "SUB-0020"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef3",
+            "Start_Date__c": "2022-11-07"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef18"
             },
+            "Customer__c": "@AccountRef5",
             "End_Date__c": "2022-11-20",
-            "Start_Date__c": "2022-10-05",
-            "Status__c": "Active",
-            "Name": "SUB-0040"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef1",
+            "Start_Date__c": "2022-10-05"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef19"
             },
+            "Customer__c": "@AccountRef9",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-10-10",
-            "Status__c": "Active",
-            "Name": "SUB-0041"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef1",
+            "Start_Date__c": "2022-10-10"
         },
         {
             "attributes": {
                 "type": "Subscription__c",
                 "referenceId": "Subscription__cRef20"
             },
+            "Customer__c": "@AccountRef14",
             "End_Date__c": "2022-11-30",
-            "Start_Date__c": "2022-11-01",
-            "Status__c": "Active",
-            "Name": "SUB-0042"
+            "Shared_Solar_System__c": "@Shared_Solar_System__cRef1",
+            "Start_Date__c": "2022-11-01"
         }
     ]
 }

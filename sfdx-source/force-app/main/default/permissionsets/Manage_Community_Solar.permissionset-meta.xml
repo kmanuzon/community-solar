@@ -41,6 +41,10 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabSettings>
+        <tab>Community_Solar_Home</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>Shared_Solar_System__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

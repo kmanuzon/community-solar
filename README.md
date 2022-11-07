@@ -3,7 +3,9 @@
 Sample application to demonstrate subscriptions, validation of subscription
 dates, and reports with chart to track start dates and end dates.
 
-![Dashboard](./docs/community-solar-01-home.png)
+![Home](./docs/community-solar-01-home.png)
+
+![Shared Solar System Record Page](./docs/community-solar-02-shared-solar-system-record.png)
 
 ## Installation Instructions
 
