@@ -1,0 +1,26 @@
+[
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Accounts.json"
+        ]
+    },
+    {
+        "sobject": "Shared_Solar_System__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Shared_Solar_System__cs.json"
+        ]
+    },
+    {
+        "sobject": "Subscription__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Subscription__cs.json"
+        ]
+    }
+]

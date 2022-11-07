@@ -1,0 +1,1 @@
+SELECT Id, Name FROM Shared_Solar_System__c ORDER BY Name ASC

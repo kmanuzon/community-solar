@@ -1,18 +1,80 @@
-# Salesforce DX Project: Next Steps
+# Community Solar
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Sample application to demonstrate subscriptions, validation of subscription
+dates, and reports with chart to track start dates and end dates.
 
-## How Do You Plan to Deploy Your Changes?
+![Dashboard](./docs/community-solar-01-home.png)
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## Installation Instructions
 
-## Configure Your Salesforce DX Project
+This section assumes that a devhub org is setup and sfdc cli is installed. The
+commands listed here should be issued on git bash or similar terminal, Command
+Prompt or PowerShell will not work without modification.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### Create Scratch Org
 
-## Read All About It
+```
+sfdx force:org:create \
+--wait 60 \
+--durationdays=30 \
+--definitionfile config/project-scratch-def.json \
+--setalias SCRATCH_ORG_USERNAME_OR_ALIAS \
+--targetdevhubusername DEVHUB_USERNAME_OR_ALIAS
+```
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+### Deploy Source Code to Scratch Org
+
+```
+sfdx force:source:push --targetusername SCRATCH_ORG_USERNAME_OR_ALIAS
+```
+
+### Assign Permission Set Group to User
+
+```
+sfdx force:user:permset:assign \
+--targetusername SCRATCH_ORG_USERNAME_OR_ALIAS \
+--permsetname Community_Solar_Administrator
+```
+
+### Import Data
+
+```
+sfdx force:data:tree:import \
+--targetusername SCRATCH_ORG_USERNAME_OR_ALIAS \
+--plan data/sample-data-plan.json
+```
+
+### Open Scratch Org
+
+```
+sfdx force:org:open -u SCRATCH_ORG_USERNAME_OR_ALIAS
+```
+
+## Export Data
+
+Account
+```
+sfdx force:data:tree:export \
+--targetusername SCRATCH_ORG_USERNAME_OR_ALIAS \
+--query scripts/soql/account.soql \
+--plan \
+--outputdir data
+```
+
+Shared Solar System
+```
+sfdx force:data:tree:export \
+--targetusername SCRATCH_ORG_USERNAME_OR_ALIAS \
+--query scripts/soql/shared-solar-system.soql \
+--plan \
+--outputdir data
+```
+
+Subscription
+```
+sfdx force:data:tree:export \
+--targetusername SCRATCH_ORG_USERNAME_OR_ALIAS \
+--query scripts/soql/subscription.soql \
+--plan \
+--outputdir data
+```

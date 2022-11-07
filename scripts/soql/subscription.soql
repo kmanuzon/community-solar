@@ -1,0 +1,1 @@
+SELECT Id, Customer__c, End_Date__c, Shared_Solar_System__c, Start_Date__c, Status__c, Name FROM Subscription__c ORDER BY Name ASC

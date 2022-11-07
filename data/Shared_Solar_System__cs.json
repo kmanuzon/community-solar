@@ -1,0 +1,25 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Shared_Solar_System__c",
+                "referenceId": "Shared_Solar_System__cRef1"
+            },
+            "Name": "Big Apple Solar Energy"
+        },
+        {
+            "attributes": {
+                "type": "Shared_Solar_System__c",
+                "referenceId": "Shared_Solar_System__cRef2"
+            },
+            "Name": "Golden State Solar Farm"
+        },
+        {
+            "attributes": {
+                "type": "Shared_Solar_System__c",
+                "referenceId": "Shared_Solar_System__cRef3"
+            },
+            "Name": "Sunshine State Solar System"
+        }
+    ]
+}
