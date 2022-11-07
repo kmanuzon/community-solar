@@ -18,7 +18,7 @@ public inherited sharing class Subscriptions extends ApplicationSObjects
 
     public Subscriptions(List<Subscription__c> records)
     {
-        super(records);
+        super(records, Schema.Subscription__c.SObjectType);
     }
 
     public ISubscriptions addStartDateOverlapError()
