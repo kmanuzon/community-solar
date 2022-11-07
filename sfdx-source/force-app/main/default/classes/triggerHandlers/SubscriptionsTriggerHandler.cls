@@ -36,6 +36,16 @@ public inherited sharing class SubscriptionsTriggerHandler extends ApplicationSO
         }
     }
 
+    /**
+     * Validate effectivity dates of given records.
+     *
+     * Effectivity dates is defined as the Start Date and End Date of a
+     * subscription. When inserting or updating a record, the effectivity dates
+     * should not overlap with existing subscriptions to the same Shared Solar
+     * System.
+     *
+     * @param records Records to validate.
+     */
     private void validateEffectivityDates(List<Subscription__c> records)
     {
         List<Subscription__c> existingSubscriptions =

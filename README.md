@@ -13,7 +13,7 @@ This section assumes that a devhub org is setup and sfdc cli is installed. The
 commands listed here should be issued on git bash or similar terminal, Command
 Prompt or PowerShell will not work without modification.
 
-### Create Scratch Org
+### 1. Create Scratch Org
 
 ```
 sfdx force:org:create \
@@ -24,13 +24,13 @@ sfdx force:org:create \
 --targetdevhubusername DEVHUB_USERNAME_OR_ALIAS
 ```
 
-### Deploy Source Code to Scratch Org
+### 2. Deploy Source Code to Scratch Org
 
 ```
 sfdx force:source:push --targetusername SCRATCH_ORG_USERNAME_OR_ALIAS
 ```
 
-### Assign Permission Set Group to User
+### 3. Assign Permission Set Group to User
 
 ```
 sfdx force:user:permset:assign \
@@ -38,7 +38,7 @@ sfdx force:user:permset:assign \
 --permsetname Community_Solar_Administrator
 ```
 
-### Import Data
+### 4. Import Data
 
 ```
 sfdx force:data:tree:import \
@@ -46,11 +46,17 @@ sfdx force:data:tree:import \
 --plan data/sample-data-plan.json
 ```
 
-### Open Scratch Org
+### 5. Open Scratch Org
 
 ```
-sfdx force:org:open -u SCRATCH_ORG_USERNAME_OR_ALIAS
+sfdx force:org:open --targetusername SCRATCH_ORG_USERNAME_OR_ALIAS
 ```
+
+### 6. Navigate to Community Solar Application
+
+1. Click App Launcher
+2. Type __Community Solar__
+3. Under Apps, click __Community Solar__
 
 ## Export Data
 
