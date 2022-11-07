@@ -78,7 +78,7 @@
         <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Community Solar Dashboard</masterLabel>
+    <masterLabel>Community Solar Home</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateHeaderTwoColumns</name>
     </template>

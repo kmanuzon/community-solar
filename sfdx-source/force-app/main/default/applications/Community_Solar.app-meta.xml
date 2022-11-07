@@ -68,7 +68,7 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Community Solar</label>
     <navType>Standard</navType>
-    <tabs>Dashboard</tabs>
+    <tabs>Community_Solar_Home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>Shared_Solar_System__c</tabs>
     <tabs>Subscription__c</tabs>
