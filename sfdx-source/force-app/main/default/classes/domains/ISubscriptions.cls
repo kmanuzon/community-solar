@@ -5,9 +5,14 @@
  */
 public interface ISubscriptions extends IApplicationSObjects
 {
-    ISubscriptions selectByCustomer(Id customerId);
+    ISubscriptions addEndDateOverlapError();
+    ISubscriptions addStartDateOverlapError();
+    Set<Id> getCustomerIds();
+    Set<Id> getSharedSolarSystemIds();
+    ISubscriptions selectByCustomer(Id value);
     ISubscriptions selectByEndDateGreaterThanOrEqualToValue(Date value);
+    ISubscriptions selectById(Set<Id> values);
     ISubscriptions selectByIdNotInValue(Id value);
-    ISubscriptions selectBySharedSolarSystem(Id solarSystemId);
+    ISubscriptions selectBySharedSolarSystem(Id value);
     ISubscriptions selectByStartDateLessThanOrEqualToValue(Date value);
 }

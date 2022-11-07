@@ -21,9 +21,33 @@ public inherited sharing class Subscriptions extends ApplicationSObjects
         super(records);
     }
 
-    public ISubscriptions selectByCustomer(Id customerId)
+    public ISubscriptions addStartDateOverlapError()
     {
-        return newInstance(getRecordsByFieldValue(Schema.Subscription__c.Customer__c, customerId));
+        addError(Schema.Subscription__c.Start_Date__c, System.Label.Community_Solar_Subscription_Start_Date_Overlap);
+
+        return this;
+    }
+
+    public ISubscriptions addEndDateOverlapError()
+    {
+        addError(Schema.Subscription__c.End_Date__c, System.Label.Community_Solar_Subscription_End_Date_Overlap);
+
+        return this;
+    }
+
+    public Set<Id> getCustomerIds()
+    {
+        return getIdFieldValues(Schema.Subscription__c.Customer__c);
+    }
+
+    public Set<Id> getSharedSolarSystemIds()
+    {
+        return getIdFieldValues(Schema.Subscription__c.Shared_Solar_System__c);
+    }
+
+    public ISubscriptions selectByCustomer(Id value)
+    {
+        return newInstance(getRecordsByFieldValue(Schema.Subscription__c.Customer__c, value));
     }
 
     public ISubscriptions selectByEndDateGreaterThanOrEqualToValue(Date value)
@@ -31,14 +55,19 @@ public inherited sharing class Subscriptions extends ApplicationSObjects
         return newInstance(getRecordsByFieldGreaterThanOrEqualToValue(Schema.Subscription__c.End_Date__c, value));
     }
 
+    public ISubscriptions selectById(Set<Id> values)
+    {
+        return newInstance(getRecordsByFieldValue(Schema.Subscription__c.Id, values));
+    }
+
     public ISubscriptions selectByIdNotInValue(Id value)
     {
         return newInstance(getRecordsByFieldNotInValue(Schema.Subscription__c.Id, value));
     }
 
-    public ISubscriptions selectBySharedSolarSystem(Id solarSystemId)
+    public ISubscriptions selectBySharedSolarSystem(Id value)
     {
-        return newInstance(getRecordsByFieldValue(Schema.Subscription__c.Shared_Solar_System__c, solarSystemId));
+        return newInstance(getRecordsByFieldValue(Schema.Subscription__c.Shared_Solar_System__c, value));
     }
 
     public ISubscriptions selectByStartDateLessThanOrEqualToValue(Date value)

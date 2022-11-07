@@ -11,6 +11,11 @@ public class SubscriptionsSelector extends fflib_SObjectSelector
         return (ISubscriptionsSelector) Application.Selector.newInstance(Schema.Subscription__c.SObjectType);
     }
 
+    public override String getOrderBy()
+    {
+        return 'Name ASC NULLS LAST';
+    }
+
     public List<Schema.SObjectField> getSObjectFieldList()
     {
         return new List<Schema.SObjectField>
@@ -35,18 +40,11 @@ public class SubscriptionsSelector extends fflib_SObjectSelector
         return (List<Subscription__c>) selectSObjectsById(ids);
     }
 
-    public List<Subscription__c> selectByCustomerAndSharedSolarSystem(List<Subscription__c> subscriptions)
+    public List<Subscription__c> selectByCustomerAndSharedSolarSystem(List<Subscription__c> records)
     {
-        Set<Id> customerIds = new Set<Id>();
-        Set<Id> sharedSolarSystemIds = new Set<Id>();
+        ISubscriptions domain = Subscriptions.newInstance(records);
 
-        for (Subscription__c subscription : subscriptions)
-        {
-            customerIds.add(subscription.Customer__c);
-            sharedSolarSystemIds.add(subscription.Shared_Solar_System__c);
-        }
-
-        return selectByCustomerAndSharedSolarSystem(customerIds, sharedSolarSystemIds);
+        return selectByCustomerAndSharedSolarSystem(domain.getCustomerIds(), domain.getSharedSolarSystemIds());
     }
 
     public List<Subscription__c> selectByCustomerAndSharedSolarSystem(Set<Id> customerIds, Set<Id> sharedSolarSystemIds)

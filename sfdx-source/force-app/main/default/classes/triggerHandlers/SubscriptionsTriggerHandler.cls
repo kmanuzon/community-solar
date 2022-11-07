@@ -30,7 +30,7 @@ public inherited sharing class SubscriptionsTriggerHandler extends ApplicationSO
 
         List<Subscription__c> changedRecords = getChangedRecords(fields);
 
-        if (!changedRecords.isEmpty())
+        if (changedRecords.isEmpty() == false)
         {
             validateEffectivityDates(changedRecords);
         }
@@ -41,48 +41,42 @@ public inherited sharing class SubscriptionsTriggerHandler extends ApplicationSO
         List<Subscription__c> existingSubscriptions =
             SubscriptionsSelector.newInstance().selectByCustomerAndSharedSolarSystem(records);
 
-        ISubscriptions existingSubscriptionsDomain = Subscriptions.newInstance(existingSubscriptions);
+        Set<Id> recordIdsWithStartDateOverlap = new Set<Id>();
+        Set<Id> recordIdsWithEndDateOverlap = new Set<Id>();
 
         for (Subscription__c record : records)
         {
-            // count existing records that overlap with start date
-            Integer startDateOverlapCount =
-                existingSubscriptionsDomain
+            Boolean hasExistingSubscriptionWithStartDateOverlap =
+                Subscriptions.newInstance(existingSubscriptions)
                     .selectByIdNotInValue(record.Id)
                     .selectByCustomer(record.Customer__c)
                     .selectBySharedSolarSystem(record.Shared_Solar_System__c)
                     .selectByStartDateLessThanOrEqualToValue(record.Start_Date__c)
                     .selectByEndDateGreaterThanOrEqualToValue(record.Start_Date__c)
-                    .getRecords()
-                    .size();
+                    .isNotEmpty();
 
-            if (startDateOverlapCount > 0)
+            if (hasExistingSubscriptionWithStartDateOverlap)
             {
-                Schema.SObjectField startDateField = Schema.Subscription__c.Start_Date__c;
-                String startDateOverlapError = System.Label.Community_Solar_Subscription_Start_Date_Overlap;
-
-                record.addError(startDateField, error(startDateOverlapError, record, startDateField));
+                recordIdsWithStartDateOverlap.add(record.Id);
             }
 
-            // count existing records that overlap with end date
-            Integer endDateOverlapCount =
-                existingSubscriptionsDomain
+            Boolean hasExistingSubscriptionWithEndDateOverlap =
+                Subscriptions.newInstance(existingSubscriptions)
                     .selectByIdNotInValue(record.Id)
                     .selectByCustomer(record.Customer__c)
                     .selectBySharedSolarSystem(record.Shared_Solar_System__c)
                     .selectByStartDateLessThanOrEqualToValue(record.End_Date__c)
                     .selectByEndDateGreaterThanOrEqualToValue(record.End_Date__c)
-                    .getRecords()
-                    .size();
+                    .isNotEmpty();
 
-            if (endDateOverlapCount > 0)
+            if (hasExistingSubscriptionWithEndDateOverlap)
             {
-                Schema.SObjectField endDateField = Schema.Subscription__c.End_Date__c;
-                String endDateOverlapError = System.Label.Community_Solar_Subscription_End_Date_Overlap;
-
-                record.addError(endDateField, error(endDateOverlapError, record, endDateField));
+                recordIdsWithEndDateOverlap.add(record.Id);
             }
         }
+
+        Subscriptions.newInstance(records).selectById(recordIdsWithStartDateOverlap).addStartDateOverlapError();
+        Subscriptions.newInstance(records).selectById(recordIdsWithEndDateOverlap).addEndDateOverlapError();
     }
 
     public class Constructor implements fflib_SObjectDomain.IConstructable
